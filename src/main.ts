@@ -19,7 +19,8 @@ async function getChefBirthday(id: number): Promise<string> {
     if ("message" in ricetta) { //qui sto usando un type guard per controllare il message - se c'è un message c'è un problema con la ricetta
         throw new Error(ricetta.message)
     }
-    const userId = ricetta.userId       //se non c'è il message, allora è Recipe ee di conseguenza anche userID è sicuro 
+    const userId = ricetta.userId
+    console.log(userId)      //se non c'è il message, allora è Recipe ee di conseguenza anche userID è sicuro 
 
     const chefResponse = await fetch(`https://dummyjson.com/users/${userId}`);
     const chef: Chef | { message: string } = await chefResponse.json()
