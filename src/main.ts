@@ -30,3 +30,19 @@ async function getChefBirthday(id: number): Promise<string> {
 
     return chef.birthDate;
 }
+
+
+(async () => {
+    try {
+        const compleannoChef = await getChefBirthday(2);
+        console.log('Lo chef è nato il ', compleannoChef);
+    } catch (error) {
+        if (error instanceof Error) {
+            console.error("Si è verificato un errore : ", error.message);
+        }
+
+    } finally {
+        console.log("Operazione completata!")
+    }
+
+})();
